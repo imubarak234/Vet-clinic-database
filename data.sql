@@ -9,3 +9,22 @@ INSERT INTO animals VALUES (7, 'Squirtle', '02-04-1993', 3, FALSE, -12.13);
 INSERT INTO animals VALUES (8, 'Angemon', '12-01-2005', 1, TRUE, -45);
 INSERT INTO animals VALUES (9, 'Boarmon', '07-01-2005', 7, TRUE, 20.4);
 INSERT INTO animals VALUES (10, 'Blossom', '13-10-1998', 3, TRUE, 17);
+
+INSERT INTO owners (FULL_NAME, AGE) VALUES ('Sam Smith', 34);
+INSERT INTO owners (FULL_NAME, AGE) VALUES ('Jennifer Orwell', 19);
+INSERT INTO owners (FULL_NAME, AGE) VALUES ('Bob', 45);
+INSERT INTO owners (FULL_NAME, AGE) VALUES ('Melody Pond', 77);
+INSERT INTO owners (FULL_NAME, AGE) VALUES ('Dean Winchester', 14);
+INSERT INTO owners (FULL_NAME, AGE) VALUES ('Jodie Whittaker', 38);
+
+INSERT INTO species (NAME) VALUES ('Pokemon');
+INSERT INTO species (NAME) VALUES ('Digimon');
+
+UPDATE animals SET species_id = 2 WHERE name LIKE '%mon';
+UPDATE animals SET species_id = 1 WHERE species_id IS NULL;
+
+UPDATE animals SET owner_id = 1 WHERE id = 1;
+UPDATE animals SET owner_id = 2 WHERE id IN (2, 5);
+UPDATE animals SET owner_id = 3 WHERE id IN (3, 7);
+UPDATE animals SET owner_id = 4 WHERE id IN (9, 10, 6);
+UPDATE animals SET owner_id = 5 WHERE id IN (8, 4);
