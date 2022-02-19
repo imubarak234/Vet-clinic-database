@@ -55,10 +55,9 @@ INSERT INTO visits (ANIMALS_ID, VETS_ID, DATE_OF_VIST) VALUES (4, 2, '03-08-2020
 INSERT INTO visits (ANIMALS_ID, VETS_ID, DATE_OF_VIST) VALUES (6, 3, '24-05-2020');
 INSERT INTO visits (ANIMALS_ID, VETS_ID, DATE_OF_VIST) VALUES (6, 1, '11-01-2021');
 
-ALTER TABLE specialization ADD COLUMN both_species boolean;
+
 UPDATE specialization SET both_species = TRUE WHERE id = 2;
 UPDATE specialization SET both_species = TRUE WHERE id = 3;
-ALTER TABLE specialization ADD COLUMN species_name VARCHAR(50);
 UPDATE specialization SET species_name = 'Pokemon' WHERE id = 1;
 UPDATE specialization SET species_name = 'Pokemon' WHERE id = 2;
 UPDATE specialization SET species_name = 'Digimon' WHERE id = 3;
