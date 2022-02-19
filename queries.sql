@@ -50,3 +50,13 @@ SELECT species.name, COUNT(species.name) FROM species LEFT JOIN animals ON speci
 SELECT animals.name, owners.full_name FROM owners LEFT JOIN animals ON owners.id = animals.owner_id WHERE owners.full_name = 'Jennifer Orwell' AND animals.species_id = 2;
 SELECT animals.name, owners.full_name FROM owners LEFT JOIN animals ON owners.id = animals.owner_id WHERE owners.full_name = 'Dean Winchester' AND animals.escape_attempts = 0;
 SELECT owners.full_name, COUNT(animals.owner_id) FROM owners LEFT JOIN animals ON owners.id = animals.owner_id GROUP BY owners.full_name;
+
+SELECT id, animals_id, vets_id FROM visits WHERE vets_id = 1 ORDER BY id DESC LIMIT 1;
+SELECT animals.name FROM animals LEFT JOIN visits ON animals.id = visits.animals_id WHERE visits.vets_id = 3 GROUP BY animals.name;
+SELECT vets.name, specialization.species_id FROM vets LEFT JOIN specialization ON vets.id = specialization.vets_id;
+SELECT animals.name, visits.date_of_vist FROM animals LEFT JOIN visits ON animals.id = visits.animals_id WHERE visits.vets_id = 3 AND visits.date_of_vist BETWEEN '01-04-2020' AND '30-09-2020';
+SELECT animals_id, COUNT(vets_id) FROM visits GROUP BY animals_id ORDER BY COUNT(vets_id) DESC LIMIT 1;
+SELECT id, animals_id, vets_id FROM visits WHERE vets_id = 2 ORDER BY id ASC LIMIT 1;
+SELECT vets_id, visits.animals_id, date_of_vist FROM visits ORDER BY id DESC LIMIT 1;
+SELECT visits.id, animals.name, animals.species_id, specialization.species_id, visits.vets_id FROM visits LEFT JOIN specialization ON visits.vets_id = specialization.vets_id LEFT JOIN animals ON visits.animals_id = animals.id WHERE (specialization.species_id != animals.species_id AND specialization.both_species IS NULL) OR (specialization.species_id IS NULL);
+SELECT visits.id, animals.name, animals.species_id, visits.vets_id FROM visits LEFT JOIN specialization ON visits.vets_id = specialization.vets_id LEFT JOIN animals ON visits.animals_id = animals.id WHERE (visits.vets_id = 2);
