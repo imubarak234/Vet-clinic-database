@@ -51,7 +51,7 @@ SELECT animals.name, owners.full_name FROM owners LEFT JOIN animals ON owners.id
 SELECT animals.name, owners.full_name FROM owners LEFT JOIN animals ON owners.id = animals.owner_id WHERE owners.full_name = 'Dean Winchester' AND animals.escape_attempts = 0;
 SELECT owners.full_name, COUNT(animals.owner_id) FROM owners LEFT JOIN animals ON owners.id = animals.owner_id GROUP BY owners.full_name;
 
-SELECT id, animals_id, vets_id FROM visits WHERE vets_id = 1 ORDER BY id DESC LIMIT 1;
+SELECT animals.name, visits.date_of_vist FROM visits LEFT JOIN animals ON animals.id = visits.animals_id WHERE visits.vets_id = 1 ORDER BY visits.id DESC LIMIT 1;
 SELECT animals.name FROM animals LEFT JOIN visits ON animals.id = visits.animals_id WHERE visits.vets_id = 3 GROUP BY animals.name;
 SELECT vets.name, specialization.species_id FROM vets LEFT JOIN specialization ON vets.id = specialization.vets_id;
 SELECT animals.name, visits.date_of_vist FROM animals LEFT JOIN visits ON animals.id = visits.animals_id WHERE visits.vets_id = 3 AND visits.date_of_vist BETWEEN '01-04-2020' AND '30-09-2020';
