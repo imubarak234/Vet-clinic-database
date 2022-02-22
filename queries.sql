@@ -60,3 +60,7 @@ SELECT id, animals_id, vets_id FROM visits WHERE vets_id = 2 ORDER BY id ASC LIM
 SELECT vets_id, visits.animals_id, date_of_vist FROM visits ORDER BY id DESC LIMIT 1;
 SELECT visits.id, animals.name, animals.species_id, specialization.species_id, visits.vets_id FROM visits LEFT JOIN specialization ON visits.vets_id = specialization.vets_id LEFT JOIN animals ON visits.animals_id = animals.id WHERE (specialization.species_id != animals.species_id AND specialization.both_species IS NULL) OR (specialization.species_id IS NULL);
 SELECT visits.id, animals.name, animals.species_id, visits.vets_id FROM visits LEFT JOIN specialization ON visits.vets_id = specialization.vets_id LEFT JOIN animals ON visits.animals_id = animals.id WHERE (visits.vets_id = 2);
+
+SELECT COUNT(*) FROM visits where animals_id = 4;
+SELECT * FROM visits where vets_id = 2;
+SELECT * FROM owners where email = 'owner_18327@mail.com';
