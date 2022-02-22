@@ -5,7 +5,7 @@ uses a relational database to create the data structure for a vet clinic. For us
 - clinic employees
 - visits
 
-# Database Diagram
+## Database Diagram
 [Database ER diagram (vet_clinic).pdf](https://github.com/imubarak234/Vet-clinic-database/files/8115836/Database.ER.diagram.vet_clinic.pdf)
 
 
